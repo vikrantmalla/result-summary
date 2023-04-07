@@ -98,6 +98,13 @@ select {
   }
 }
 
+/* main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+} */
+
 header {
   height: 50vh;
   background-color: var(--Light-slate-blue);
@@ -154,24 +161,11 @@ header h1 {
   justify-content: space-between;
   align-items: center;
   margin: 1.5rem 1rem 0 1rem;
-  padding: 1rem;
-  border-radius: .5rem;
 }
 
-.summary-score .activity {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px
-}
-
-.summary-score .result {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px
+.summary-score p {
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .cta-btn {
@@ -188,20 +182,4 @@ button {
   border-radius: 50px;
   background: var(--Dark-gray-blue);
   color: var(--White);
-}
-
-.summary-score.reaction {
-  background-color: hsl(0, 100%, 67%, 0.03);
-}
-
-.summary-score.memory {
-  background-color: hsla(39, 100%, 56%, 0.03);
-}
-
-.summary-score.verbal {
-  background-color: hsla(166, 100%, 37%, 0.03);
-}
-
-.summary-score.visual {
-  background-color: hsla(234, 85%, 45%, 0.03);
 }
