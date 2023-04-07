@@ -31,28 +31,107 @@
       </header>
       <section>
         <h1 class="sub-heading">Summary</h1>
-        <section class="summary-card">
-          <article class="summary-score">
-            <h1>Reaction</h1>
-            <h1>80 / 100</h1>
-          </article>
-          <article class="summary-score">
-            <h1>Memory</h1>
-            <h1>92 / 100</h1>
-          </article>
-          <article class="summary-score">
-            <h1>Verbal</h1>
-            <h1>61 / 100</h1>
-          </article>
-          <article class="summary-score">
-            <h1>Verbal</h1>
-            <h1>72 / 100</h1>
-          </article>
-        </section>
+        <section id="summary-card" class="summary-card"></section>
         <section class="cta-btn">
           <button>Continue</button>
         </section>
       </section>
     </main>
   </body>
+  <script>
+    const scores = [
+      {
+        category: "Reaction",
+        score: 80,
+        icon: "./assets/images/icon-reaction.svg",
+      },
+      {
+        category: "Memory",
+        score: 92,
+        icon: "./assets/images/icon-memory.svg",
+      },
+      {
+        category: "Verbal",
+        score: 61,
+        icon: "./assets/images/icon-verbal.svg",
+      },
+      {
+        category: "Visual",
+        score: 72,
+        icon: "./assets/images/icon-visual.svg",
+      },
+    ];
+
+    const scoresDiv = document.getElementById("summary-card");
+
+    for (let i = 0; i < scores.length; i++) {
+      const score = scores[i];
+      const iconUrl = score.icon;
+      const category = score.category;
+      const scoreValue = score.score;
+
+      // Create a new div to display the score
+      const scoreDiv = document.createElement("article");
+
+      // Add a class to the scoreDiv based on the category
+      scoreDiv.classList.add("summary-score");
+      switch (category.toLowerCase()) {
+        case "reaction":
+          scoreDiv.classList.add("reaction");
+          break;
+        case "memory":
+          scoreDiv.classList.add("memory");
+          break;
+        case "verbal":
+          scoreDiv.classList.add("verbal");
+          break;
+        case "visual":
+          scoreDiv.classList.add("visual");
+          break;
+        default:
+          break;
+      }
+
+      // Create a new div to hold the icon and category
+      const iconCategoryDiv = document.createElement("div");
+
+      // Add a class to the iconCategoryDiv
+      iconCategoryDiv.classList.add("activity");
+
+      // Add the icon to the iconCategoryDiv
+      const iconImg = document.createElement("img");
+      iconImg.src = iconUrl;
+      iconCategoryDiv.appendChild(iconImg);
+
+      // Add the category to the iconCategoryDiv
+      const categoryHeading = document.createElement("h1");
+      categoryHeading.textContent = category;
+      iconCategoryDiv.appendChild(categoryHeading);
+
+      // Add the iconCategoryDiv to the scoreDiv
+      scoreDiv.appendChild(iconCategoryDiv);
+
+      // Create a new div to hold the score and total
+      const resultDiv = document.createElement("div");
+
+      // Add a class to the resultDiv
+      resultDiv.classList.add("result");
+
+      // Add the score value to the resultDiv
+      const scoreSubHeading = document.createElement("h1");
+      scoreSubHeading.textContent = scoreValue;
+      resultDiv.appendChild(scoreSubHeading);
+
+      // Add the "total" text to the resultDiv
+      const total = document.createElement("h1");
+      total.textContent = "/ 100";
+      resultDiv.appendChild(total);
+
+      // Add the resultDiv to the scoreDiv
+      scoreDiv.appendChild(resultDiv);
+
+      // Add the score div to the scores container
+      scoresDiv.appendChild(scoreDiv);
+    }
+  </script>
 </html>
