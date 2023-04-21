@@ -109,6 +109,8 @@
       categoryHeading.textContent = category;
       iconCategoryDiv.appendChild(categoryHeading);
 
+      categoryHeading.classList.add('heading')
+
       // Add the iconCategoryDiv to the scoreDiv
       scoreDiv.appendChild(iconCategoryDiv);
 
@@ -123,10 +125,14 @@
       scoreSubHeading.textContent = scoreValue;
       resultDiv.appendChild(scoreSubHeading);
 
+      scoreSubHeading.classList.add('score-val')
+
       // Add the "total" text to the resultDiv
       const total = document.createElement("h1");
       total.textContent = "/ 100";
       resultDiv.appendChild(total);
+
+      total.classList.add('total');
 
       // Add the resultDiv to the scoreDiv
       scoreDiv.appendChild(resultDiv);
